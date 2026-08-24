@@ -162,9 +162,9 @@ __Solution:__
 
 - Backend Repository: [View Backend Code](https://github.com/AdedayoWilliams09/stayease-backend.git)
 
-- Live Frontend (Vercel)
+- Live Frontend (Vercel): https://stayease-frontend-pi.vercel.app/
 
-- Live API (Render)
+- Live API (Render): https://stayease-backend-3fy1.onrender.com
 
 ### License
 
