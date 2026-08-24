@@ -20,8 +20,10 @@ This is the **frontend foundation** for the StayEase hotel booking platform. It 
 
 ### 1. Clone the repository
 
-git clone <your-frontend-repo-url>
-cd frontend
+git clone https://github.com/AdedayoWilliams09/stayease-frontend.git
+
+
+- cd frontend
 
 ### 2. Install dependencies
 npm install
