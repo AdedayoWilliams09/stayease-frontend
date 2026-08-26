@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Container from '../common/Container';
 import SectionHeader from '../common/SectionHeader';
+import parisImg from '../../assets/images/paris.jpg';
 
 /**
  * DestinationSection Component - Popular destinations grid
@@ -12,7 +13,7 @@ const DestinationSection = () => {
       id: 1,
       name: 'Paris',
       country: 'France',
-      image: '/src/assets/images/paris.jpg',
+      image: parisImg,
       hotels: 342,
     },
     {
