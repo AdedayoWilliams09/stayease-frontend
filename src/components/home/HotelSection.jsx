@@ -7,6 +7,12 @@ import { FiStar, FiMapPin, FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 import Container from '../common/Container';
 import SectionHeader from '../common/SectionHeader';
 import Button from '../common/Button';
+import hotel1Img from '../../assets/images/hotel-1.jpg';
+import hotel2Img from '../../assets/images/hotel-2.jpg';
+import hotel3Img from '../../assets/images/hotel-3.jpg';
+import hotel4Img from '../../assets/images/hotel-4.jpg';
+import hotel5Img from '../../assets/images/hotel-5.jpg';
+import hotel6Img from '../../assets/images/hotel-6.jpg';
 
 // Mock data for featured hotels
 const mockHotels = [
@@ -17,7 +23,7 @@ const mockHotels = [
     rating: 4.9,
     reviews: 234,
     price: 450,
-    image: '/src/assets/images/hotel-1.jpg',
+    image: hotel1Img,
     discount: 20,
   },
   {
@@ -27,7 +33,7 @@ const mockHotels = [
     rating: 4.8,
     reviews: 189,
     price: 320,
-    image: '/src/assets/images/hotel-2.jpg',
+    image: hotel2Img,
     discount: 15,
   },
   {
@@ -37,7 +43,7 @@ const mockHotels = [
     rating: 4.7,
     reviews: 456,
     price: 280,
-    image: '/src/assets/images/hotel-3.jpg',
+    image: hotel3Img,
     discount: null,
   },
   {
@@ -47,7 +53,7 @@ const mockHotels = [
     rating: 4.9,
     reviews: 312,
     price: 380,
-    image: '/src/assets/images/hotel-4.jpg',
+    image: hotel4Img,
     discount: 25,
   },
   {
@@ -57,7 +63,7 @@ const mockHotels = [
     rating: 4.6,
     reviews: 278,
     price: 520,
-    image: '/src/assets/images/hotel-5.jpg',
+    image: hotel5Img,
     discount: null,
   },
   {
@@ -67,7 +73,7 @@ const mockHotels = [
     rating: 4.8,
     reviews: 345,
     price: 410,
-    image: '/src/assets/images/hotel-6.jpg',
+    image: hotel6Img,
     discount: 10,
   },
 ];

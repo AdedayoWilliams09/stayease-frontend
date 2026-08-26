@@ -3,6 +3,11 @@ import { motion } from 'framer-motion';
 import Container from '../common/Container';
 import SectionHeader from '../common/SectionHeader';
 import parisImg from '../../assets/images/paris.jpg';
+import tokyoImg from '../../assets/images/tokyo.jpg';
+import newyorkImg from '../../assets/images/newyork.jpg';
+import dubaiImg from '../../assets/images/dubai.jpg';
+import singaporeImg from '../../assets/images/singapore.jpg';
+import sydneyImg from '../../assets/images/sydney.jpg';
 
 /**
  * DestinationSection Component - Popular destinations grid
@@ -20,35 +25,35 @@ const DestinationSection = () => {
       id: 2,
       name: 'Tokyo',
       country: 'Japan',
-      image: '/src/assets/images/tokyo.jpg',
+      image: tokyoImg,
       hotels: 567,
     },
     {
       id: 3,
       name: 'New York',
       country: 'USA',
-      image: '/src/assets/images/newyork.jpg',
+      image: newyorkImg,
       hotels: 823,
     },
     {
       id: 4,
       name: 'Dubai',
       country: 'UAE',
-      image: '/src/assets/images/dubai.jpg',
+      image: dubaiImg,
       hotels: 456,
     },
     {
       id: 5,
       name: 'Singapore',
       country: 'Singapore',
-      image: '/src/assets/images/singapore.jpg',
+      image: singaporeImg,
       hotels: 289,
     },
     {
       id: 6,
       name: 'Sydney',
       country: 'Australia',
-      image: '/src/assets/images/sydney.jpg',
+      image: sydneyImg,
       hotels: 378,
     },
   ];
