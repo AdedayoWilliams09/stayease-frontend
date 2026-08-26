@@ -3,6 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FiStar, FiChevronLeft, FiChevronRight, FiCheckCircle } from 'react-icons/fi';
 import Container from '../common/Container';
 import SectionHeader from '../common/SectionHeader';
+import avatar1Img from "../../assets/images/avatar-1.jpg";
+import avatar2Img from "../../assets/images/avatar-2.jpg";
+import avatar3Img from "../../assets/images/avatar-3.jpg";
+import avatar4Img from "../../assets/images/avatar-4.jpg";
+import avatar5Img from "../../assets/images/avatar-5.jpg";
 
 /**
  * TestimonialSection Component - User reviews carousel
@@ -15,7 +20,7 @@ const TestimonialSection = () => {
       location: 'New York',
       rating: 5,
       text: 'The best booking experience I\'ve ever had. The process was seamless and the hotel was perfect!',
-      avatar: '/src/assets/images/avatar-1.jpg',
+      avatar: avatar1Img,
       verified: true,
     },
     {
@@ -24,7 +29,7 @@ const TestimonialSection = () => {
       location: 'London',
       rating: 5,
       text: 'Found the most beautiful beach resort at an amazing price. Highly recommend!',
-      avatar: '/src/assets/images/avatar-2.jpg',
+      avatar: avatar2Img,
       verified: true,
     },
     {
@@ -33,7 +38,7 @@ const TestimonialSection = () => {
       location: 'Sydney',
       rating: 5,
       text: 'The customer support team went above and beyond to help with our booking. Five stars!',
-      avatar: '/src/assets/images/avatar-3.jpg',
+      avatar: avatar3Img,
       verified: true,
     },
     {
@@ -42,7 +47,7 @@ const TestimonialSection = () => {
       location: 'Toronto',
       rating: 4,
       text: 'Great selection of hotels. Easy to use and the prices are competitive.',
-      avatar: '/src/assets/images/avatar-4.jpg',
+      avatar: avatar4Img,
       verified: true,
     },
     {
@@ -51,7 +56,7 @@ const TestimonialSection = () => {
       location: 'Singapore',
       rating: 5,
       text: 'This platform made planning my vacation so easy. Everything was perfect from start to finish.',
-      avatar: '/src/assets/images/avatar-5.jpg',
+      avatar: avatar5Img,
       verified: true,
     },
   ];
