@@ -273,6 +273,82 @@ VITE_API_URL=http://localhost:5000/api
 
 
 
+##  Hotels (Explore) Page (COMPLETED)
+
+### Page Added
+- **Hotels Page** (`/hotels`) - Full hotel listing with search, filters, sorting, and pagination
+
+### New Components Created
+
+#### Hotel Components
+| Component | Purpose | Location |
+|-----------|---------|----------|
+| `HotelCard` | Individual hotel card with image carousel | `components/hotels/HotelCard.jsx` |
+| `HotelCardSkeleton` | Loading placeholder for hotel cards | `components/hotels/HotelCardSkeleton.jsx` |
+| `SearchBar` | Sticky search form with date and guest inputs | `components/hotels/SearchBar.jsx` |
+| `FiltersSidebar` | Filter panel with price, rating, amenities, property type | `components/hotels/FiltersSidebar.jsx` |
+| `PriceSlider` | Range slider for price filtering | `components/hotels/PriceSlider.jsx` |
+| `RatingFilter` | Star rating filter (1-5 stars) | `components/hotels/RatingFilter.jsx` |
+| `AmenityFilter` | Amenity checkbox filter | `components/hotels/AmenityFilter.jsx` |
+| `PropertyTypeFilter` | Property type checkbox filter | `components/hotels/PropertyTypeFilter.jsx` |
+| `ResultsSummary` | Results count, sort dropdown, view toggle | `components/hotels/ResultsSummary.jsx` |
+| `EmptyState` | No results message with actions | `components/hotels/EmptyState.jsx` |
+| `Pagination` | Page navigation controls | `components/hotels/Pagination.jsx` |
+
+### New Dependencies Installed
+| Package | Purpose |
+|---------|---------|
+| `@radix-ui/react-slider` | Accessible range slider for price filter |
+
+### Data Layer
+- `mockHotels.js` - Mock hotel data with imported images
+- All amenities and property types exported for filters
+
+### Features Implemented
+-  Sticky search bar with persistent parameters
+-  Price range slider with min/max values
+-  Star rating filter (1-5 stars)
+-  Amenity filters (WiFi, Pool, Parking, Restaurant, Gym, Spa, Beachfront)
+-  Property type filters (Hotel, Resort, Villa, Apartment, Bed & Breakfast)
+-  Results count with location display
+-  Sort by: Recommended, Price (low-high), Price (high-low), Rating, Distance
+-  View toggle: List / Map (Map placeholder)
+-  Hotel card with image carousel
+-  Hotel card with rating, amenities, price, total price calculation
+-  Pagination with page numbers
+-  Empty state when no results
+-  Loading skeletons
+-  URL query parameter sync (shareable links)
+-  Responsive design (mobile-first)
+-  Dark mode support
+-  Framer Motion animations
+-  SEO meta tags
+-  Accessibility (ARIA labels, semantic HTML)
+
+### Images Required
+The following images should be added to `frontend/src/assets/images/`:
+
+| Image | Size | Description |
+|-------|------|-------------|
+| `hotel-1.jpg` ~ `hotel-6.jpg` | 800x450 | Hotel card images |
+
+### URL Query Parameters
+| Parameter | Description | Example |
+|-----------|-------------|---------|
+| `location` | Search location | `Paris` |
+| `checkIn` | Check-in date | `2026-09-01` |
+| `checkOut` | Check-out date | `2026-09-05` |
+| `guests` | Number of guests | `2` |
+| `sort` | Sort option | `price_asc` |
+| `priceMin` | Minimum price | `100` |
+| `priceMax` | Maximum price | `500` |
+| `rating` | Minimum rating | `4` |
+| `amenities` | Comma-separated amenities | `WiFi,Pool` |
+| `propertyTypes` | Comma-separated property types | `Hotel,Resort` |
+| `page` | Page number | `2` |
+
+
+
 
 
 
