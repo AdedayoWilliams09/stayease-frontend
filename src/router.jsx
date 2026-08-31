@@ -8,6 +8,7 @@ import App from './App';
 // Lazy load pages
 const HomePage = lazy(() => import('./pages/HomePage'));
 const HotelsPage = lazy(() => import('./pages/HotelsPage'));
+const HotelDetailPage = lazy(() => import('./pages/HotelDetailPage'));
 
 // Loading component
 const PageLoader = () => (
@@ -55,7 +56,7 @@ const router = createBrowserRouter([
         path: 'hotels/:id',
         element: (
           <Suspense fallback={<PageLoader />}>
-            <div>Hotel Detail Page (Coming Soon)</div>
+             <HotelDetailPage />
           </Suspense>
         ),
       },
