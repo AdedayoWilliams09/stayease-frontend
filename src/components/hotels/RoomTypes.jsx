@@ -1,17 +1,31 @@
-import { useState } from 'react';
+// FILE: frontend/src/components/hotels/RoomTypes.jsx
+// COMPLETE FIXED VERSION
+
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiUsers, FiCheck, FiX, FiChevronDown, FiChevronUp } from 'react-icons/fi';
+import { FiUsers, FiCheck, FiChevronDown, FiChevronUp } from 'react-icons/fi';
 import Button from '../common/Button';
 
 /**
  * RoomTypes Component - Displays available room types
  * 
  * @param {array} rooms - Array of room objects
- * @param {function} onSelectRoom - Callback when room is selected
+ * @param {function} onSelectRoom - Callback when room is selected (for booking widget)
  * @param {string} selectedRoomId - Currently selected room ID
+ * @param {number} hotelId - Hotel ID for navigation (REQUIRED)
  */
-const RoomTypes = ({ rooms = [], onSelectRoom, selectedRoomId = '' }) => {
+const RoomTypes = ({ 
+  rooms = [], 
+  onSelectRoom, 
+  selectedRoomId = '', 
+  hotelId 
+}) => {
+  const navigate = useNavigate();
   const [expandedRoom, setExpandedRoom] = useState(null);
+
+  // Debug: log hotelId to check if it's being passed
+  console.log('RoomTypes - hotelId:', hotelId);
 
   if (!rooms || rooms.length === 0) {
     return (
@@ -23,6 +37,17 @@ const RoomTypes = ({ rooms = [], onSelectRoom, selectedRoomId = '' }) => {
 
   const toggleExpand = (roomId) => {
     setExpandedRoom(expandedRoom === roomId ? null : roomId);
+  };
+
+  // Navigate to room detail
+  const handleViewDetails = (roomId) => {
+    // Check if hotelId is defined
+    if (!hotelId) {
+      console.error('hotelId is undefined in RoomTypes component. Cannot navigate to room detail.');
+      return;
+    }
+    console.log(`Navigating to: /hotels/${hotelId}/rooms/${roomId}`);
+    navigate(`/hotels/${hotelId}/rooms/${roomId}`);
   };
 
   const formatPrice = (price) => {
@@ -140,7 +165,18 @@ const RoomTypes = ({ rooms = [], onSelectRoom, selectedRoomId = '' }) => {
                     {isExpanded ? <FiChevronUp size={16} /> : <FiChevronDown size={16} />}
                   </button>
                   
-                  <div className="ml-auto">
+                  <div className="ml-auto flex items-center gap-2">
+                    {/* View Details Button - Navigates to Room Detail */}
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => handleViewDetails(room.id)}
+                      disabled={!hotelId}
+                    >
+                      View Details
+                    </Button>
+                    
+                    {/* Select Room Button - Updates booking widget */}
                     <Button
                       variant={isSelected ? 'primary' : 'outline'}
                       size="sm"

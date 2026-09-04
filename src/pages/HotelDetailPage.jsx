@@ -226,6 +226,7 @@ const HotelDetailPage = () => {
             rooms={hotel.roomTypes || []}
             selectedRoomId={selectedRoomId}
             onSelectRoom={handleRoomSelect}
+             hotelId={hotel.id} 
           />
         </section>
 

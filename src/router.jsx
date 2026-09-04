@@ -1,14 +1,13 @@
-// FILE: frontend/src/router.jsx
-// MODIFIED: Added /hotels route
-
 import { createBrowserRouter } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import App from './App';
+import ScrollToTop from './components/common/ScrollToTop';
 
 // Lazy load pages
 const HomePage = lazy(() => import('./pages/HomePage'));
 const HotelsPage = lazy(() => import('./pages/HotelsPage'));
 const HotelDetailPage = lazy(() => import('./pages/HotelDetailPage'));
+const RoomDetailPage = lazy(() => import('./pages/RoomDetailPage'));
 
 // Loading component
 const PageLoader = () => (
@@ -22,8 +21,13 @@ const PageLoader = () => (
 
 const router = createBrowserRouter([
   {
-    path: '/',
-    element: <App />,
+     path: '/',
+    element: (
+      <>
+        <ScrollToTop /> 
+        <App />
+      </>
+    ),
     errorElement: (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
@@ -57,6 +61,14 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<PageLoader />}>
              <HotelDetailPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'hotels/:hotelId/rooms/:roomId',
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <RoomDetailPage />
           </Suspense>
         ),
       },
