@@ -657,6 +657,77 @@ Added `vercel.json` to fix 404 errors on page refresh:
 
 
 
+## Phase 7: FAQ Page (COMPLETED)
+
+### Page Added
+- **FAQ Page** (`/faq`) - Categorized frequently asked questions with accordion, support callout, and FAQPage structured data
+
+### New Components Created
+
+#### FAQ Components
+| Component | Purpose | Location |
+|-----------|---------|----------|
+| `FaqHero` | Hero with "Frequently Asked Questions" headline and gradient background | `components/faq/FaqHero.jsx` |
+| `FaqCategories` | Tab bar (6 categories) + active category accordion | `components/faq/FaqCategories.jsx` |
+| `FaqAccordion` | Accessible single-open accordion for Q&A items | `components/faq/FaqAccordion.jsx` |
+| `FaqContact` | "Still have questions?" support callout linking to /contact | `components/faq/FaqContact.jsx` |
+
+#### New Data Files
+| File | Purpose | Location |
+|------|---------|----------|
+| `mockFaqs.js` | 6 categories × 4 Q&A items (General, Booking, Payments, Cancellation, Account, Hosts) | `data/mockFaqs.js` |
+
+### Reused Components
+| Component | From | Usage |
+|-----------|------|-------|
+| `CTASection` | Homepage | Call to action at bottom of FAQ page |
+| `Container` | Common | Layout wrapper |
+| `SectionHeader` | Common | Section title with subtitle |
+| `Button` | Common | "Contact Support" button in FaqContact |
+
+### Redux Slices
+No new slices. FAQ is a static content page — tab/accordion state is local `useState`.
+
+### New Environment Variables
+None.
+
+### New Dependencies
+None.
+
+### Features Implemented
+-  Full responsive design (mobile-first)
+-  Dark mode with persistence
+-  Framer Motion animations (hero fade-in, scroll reveals, accordion height, category crossfade, chevron rotate)
+-  Accessible accordion (aria-expanded, aria-controls, role="region", keyboard support)
+-  Accessible tabs (role="tablist"/"tab"/"tabpanel", aria-selected)
+-  SEO meta tags (Helmet)
+-  FAQPage JSON-LD structured data (built from mockFaqs, stays in sync with visible content)
+-  Lazy-loaded route
+-  Touch-friendly tab targets (44px+)
+-  Hidden scrollbar on mobile tab bar
+
+### Content
+- **6 categories**: General, Booking, Payments, Cancellation, Account, Hosts
+- **4 questions per category** (24 total)
+- "Still have questions?" callout → Contact page
+
+### Routing
+- `/faq` added with lazy loading
+- Footer already had an FAQ link (now functional)
+- Optional: FAQ link added to top nav via `NavLinks.jsx`
+
+### Known Issues / Limitations
+- FAQ content is mock data (`mockFaqs.js`) — will be API-driven in a future phase (`GET /api/faqs`)
+- No search within FAQ
+- No per-question helpfulness voting (requires backend)
+- No deep-linking to a specific question via URL hash
+- No admin/CMS to manage FAQ content
+
+
+
+
+
+
 
 
 

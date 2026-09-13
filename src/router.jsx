@@ -1,15 +1,16 @@
-import { createBrowserRouter } from 'react-router-dom';
-import { lazy, Suspense } from 'react';
-import App from './App';
-import ScrollToTop from './components/common/ScrollToTop';
+import { createBrowserRouter } from "react-router-dom";
+import { lazy, Suspense } from "react";
+import App from "./App";
+import ScrollToTop from "./components/common/ScrollToTop";
 
 // Lazy load pages
-const HomePage = lazy(() => import('./pages/HomePage'));
-const HotelsPage = lazy(() => import('./pages/HotelsPage'));
-const HotelDetailPage = lazy(() => import('./pages/HotelDetailPage'));
-const RoomDetailPage = lazy(() => import('./pages/RoomDetailPage'));
-const AboutPage = lazy(() => import('./pages/AboutPage'));
-const ContactPage = lazy(() => import('./pages/ContactPage'));
+const HomePage = lazy(() => import("./pages/HomePage"));
+const HotelsPage = lazy(() => import("./pages/HotelsPage"));
+const HotelDetailPage = lazy(() => import("./pages/HotelDetailPage"));
+const RoomDetailPage = lazy(() => import("./pages/RoomDetailPage"));
+const AboutPage = lazy(() => import("./pages/AboutPage"));
+const ContactPage = lazy(() => import("./pages/ContactPage"));
+const FaqPage = lazy(() => import("./pages/FaqPage"));
 
 // Loading component
 const PageLoader = () => (
@@ -23,19 +24,26 @@ const PageLoader = () => (
 
 const router = createBrowserRouter([
   {
-     path: '/',
+    path: "/",
     element: (
       <>
-        <ScrollToTop /> 
+        <ScrollToTop />
         <App />
       </>
     ),
     errorElement: (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Oops!</h1>
-          <p className="text-gray-600 dark:text-gray-400">Something went wrong. Please try again.</p>
-          <a href="/" className="mt-4 inline-block text-blue-600 hover:underline">
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            Oops!
+          </h1>
+          <p className="text-gray-600 dark:text-gray-400">
+            Something went wrong. Please try again.
+          </p>
+          <a
+            href="/"
+            className="mt-4 inline-block text-blue-600 hover:underline"
+          >
             Go back home
           </a>
         </div>
@@ -51,7 +59,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: 'hotels',
+        path: "hotels",
         element: (
           <Suspense fallback={<PageLoader />}>
             <HotelsPage />
@@ -59,34 +67,42 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: 'hotels/:id',
+        path: "hotels/:id",
         element: (
           <Suspense fallback={<PageLoader />}>
-             <HotelDetailPage />
+            <HotelDetailPage />
           </Suspense>
         ),
       },
       {
-        path: 'hotels/:hotelId/rooms/:roomId',
+        path: "hotels/:hotelId/rooms/:roomId",
         element: (
           <Suspense fallback={<PageLoader />}>
             <RoomDetailPage />
           </Suspense>
         ),
       },
-       {
-        path: 'about',
+      {
+        path: "about",
         element: (
           <Suspense fallback={<PageLoader />}>
             <AboutPage />
           </Suspense>
         ),
       },
-       {
-        path: 'contact',
+      {
+        path: "contact",
         element: (
           <Suspense fallback={<PageLoader />}>
             <ContactPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "faq",
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <FaqPage />
           </Suspense>
         ),
       },
