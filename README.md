@@ -727,6 +727,85 @@ None.
 
 
 
+## Phase 8: Terms Page (COMPLETED)
+
+### Page Added
+- **Terms of Service** (`/terms`) - Legal terms document with sticky table of contents, 13 sections, last-updated line, back-to-top button, and WebPage structured data
+
+### New Components Created
+
+#### Terms Components
+| Component | Purpose | Location |
+|-----------|---------|----------|
+| `TermsHero` | Hero with "Terms of Service" headline + last-updated line | `components/terms/TermsHero.jsx` |
+| `TermsNav` | Sticky TOC (desktop sidebar) / horizontal pill bar (mobile) with IntersectionObserver active-section tracking | `components/terms/TermsNav.jsx` |
+| `TermsSection` | Renders one section: title + paragraphs (with "- " → `<ul>` convention) | `components/terms/TermsSection.jsx` |
+| `BackToTopButton` | Fixed scroll-to-top button appearing after ~600px scroll | `components/terms/BackToTopButton.jsx` |
+
+#### New Data Files
+| File | Purpose | Location |
+|------|---------|----------|
+| `mockTerms.js` | 13 sections + intro + lastUpdated date (placeholder legal copy) | `data/mockTerms.js` |
+
+### Reused Components
+| Component | From | Usage |
+|-----------|------|-------|
+| `CTASection` | Homepage | Closing call to action |
+| `Container` | Common | Layout wrapper |
+| `Button` | Common | Used indirectly via CTASection |
+
+### Redux Slices
+No new slices. Terms is a static content page — TOC/scroll state is local `useState` + `IntersectionObserver`.
+
+### New Environment Variables
+None.
+
+### New Dependencies
+None.
+
+### Features Implemented
+-  Full responsive design (mobile-first)
+-  Dark mode with persistence
+-  Framer Motion animations (hero stagger, section scroll reveal, back-to-top fade/scale, TOC active-state transition)
+-  Sticky TOC sidebar on desktop; horizontal pill bar on mobile
+-  `IntersectionObserver`-driven active section highlighting
+-  Smooth anchor scrolling that accounts for the fixed header (`scroll-mt-24`, `yOffset: -96`)
+-  Deep-linking via URL hash (`#bookings`, etc.) — links are shareable
+-  Back-to-top button (implied feature for long legal docs)
+-  SEO meta tags (Helmet)
+-  `WebPage` JSON-LD structured data (non-rich-result — Terms isn't a rich-result type; avoids schema misuse penalty)
+-  Lazy-loaded route
+-  Touch-friendly controls (44px+)
+-  Semantic HTML (`<main>`, `<section aria-labelledby>`, `<article>`, `<nav>`)
+-  Accessibility: `aria-current` on active TOC link, `aria-label="Back to top"`, keyboard-friendly anchors with visible focus rings
+-  Content data lives in `mockTerms.js` — swappable for `GET /api/terms` with no component changes
+
+### Content
+- **Intro paragraph** (above TOC/content grid)
+- **13 sections**: Acceptance, Eligibility & Accounts, Bookings, Payments, Cancellations, User Conduct, User Content, Intellectual Property, Limitation of Liability, Indemnification, Termination, Governing Law, Contact
+- **Last updated line** in hero and footer note
+- Placeholder legal copy (marked in `mockTerms.js` comments — replace with counsel-reviewed copy before production launch)
+
+### Routing
+- `/terms` added with lazy loading
+- Footer already had a Terms link (now functional)
+- Top nav intentionally NOT updated — Terms belongs in footer legal links
+
+### Known Issues / Limitations
+- Terms content is placeholder copy (`mockTerms.js`) — must be replaced with legal-counsel-reviewed text before production
+- No backend `GET /api/terms` (future phase)
+- No CMS/admin editing (future phase)
+- Privacy Policy page (`/privacy`) is NOT built — footer link is inert until a future phase
+- No acceptance tracking (checkbox + DB record) — future backend phase
+- No i18n / multi-language support
+- No cookie consent banner (may be required depending on jurisdiction — future phase)
+
+
+
+
+
+
+
 
 
 

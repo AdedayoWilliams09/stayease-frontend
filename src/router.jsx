@@ -11,6 +11,7 @@ const RoomDetailPage = lazy(() => import("./pages/RoomDetailPage"));
 const AboutPage = lazy(() => import("./pages/AboutPage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
 const FaqPage = lazy(() => import("./pages/FaqPage"));
+const TermsPage = lazy(() => import("./pages/TermsPage"));
 
 // Loading component
 const PageLoader = () => (
@@ -103,6 +104,14 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<PageLoader />}>
             <FaqPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "terms",
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <TermsPage />
           </Suspense>
         ),
       },
